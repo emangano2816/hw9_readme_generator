@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");   //module included with node
 const inquirer = require("inquirer");
-const inquire = require("inquirer");  //npm package that is installed first
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -9,7 +8,15 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    console.log(fileName);
+    console.log(data);
+    fs.writeFile(fileName, 
+                `# ${data.title} \n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](https://github.com/${data.githubuser}/hw9_readme_generator/##Installation) \n * [Usage Information](https://github.com/${data.githubuser}/hw9_readme_generator/##Usage-Information) \n * [Contribution](https://github.com/${data.githubuser}/hw9_readme_generator/##Contributing) \n * [Tests](https://github.com/${data.githubuser}/hw9_readme_generator/##Tests) \n [License](https://github.com/${data.githubuser}/hw9_readme_generator/##License) \n * [Questions](https://github.com/${data.githubuser}/hw9_readme_generator/##Questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## License \n ${data.license} \n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
+                 (err) => {
+        err ? console.error(err) : console.log("Success!")
+    })
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -19,7 +26,12 @@ function init() {
                 type: 'input',
                 message: 'What is the title of your project?',
                 name: 'title',
-                default: 'Project Title',
+                validate: function(text) {
+                    if (text === '') {
+                        return 'Please provide a project title. Provide a placeholder if unsure of title at this time.'
+                    } 
+                    return true;
+                }
             },
             {
                 type: 'editor',
@@ -32,6 +44,12 @@ function init() {
                 message: 'Provide installation instructions.',
                 name: 'installation',
                 default: 'Installation instructions go here.',
+            },
+            {                   
+                type: 'editor',
+                message: 'Provide usage instructions.',
+                name: 'usage',
+                default: 'Usage instructions go here.',
             },
             {   
                 type: 'editor',
@@ -64,16 +82,29 @@ function init() {
             {
                 type: 'input',
                 message: 'What is your GitHub username (link to repo will be included for questions)?',
-                name: 'questions',
+                name: 'githubuser',
+                validate: function(text) {
+                    if (text === '') {
+                        return 'Please provide your GitHub username.'
+                    } 
+                    return true;
+                }
             },
             {
                 type: 'input',
                 message: 'What is your email address?',
                 name: 'emailaddress',
+                validate: function(text) {
+                    if (text === '') {
+                        return 'Please provide an email address so users are able to contact your for questions.'
+                    } 
+                    return true;
+                }
             }
         ])
         .then((response) => {
             console.log(response);
+            writeToFile('README.md', response);
         })
 }
 
