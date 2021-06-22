@@ -1,7 +1,7 @@
 # Readme Generator
 
 ## URLs
-1 GitHub Repository: https://github.com/emangano2816/readme_generator
+GitHub Repository: https://github.com/emangano2816/readme_generator
 
 ## User Story
 ```
@@ -27,8 +27,8 @@ WHEN I enter my email address
 THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
-
 ```
+
 ## Achieving Acceptance Criteria
 1. Upon invoking the application through the terminal, the user will be prompted to respond to questions about the content to be included in the generated README. Once all questions are answered a README.md is generated for the user.  The file follows mark-down formatting and is high-quality.
 2. The title of the project is displayed as the first header in the generated README file.
@@ -38,5 +38,5 @@ THEN I am taken to the corresponding section of the README
 6. The user's email address is also added to the Questions section.
 7. Each section of the README (with the exception of the Description) is included in the TOC.  The links within the TOC take the user to the specified section of the README.
 
-
+## Video Demonstration
 
