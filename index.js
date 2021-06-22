@@ -12,9 +12,9 @@ function writeToFile(fileName, data) {
 
     let badgeImage = generateMarkdown.renderLicenseBadge(data.license);
     let badgeLink = generateMarkdown.renderLicenseLink(data.license);
-    
+
     fs.writeFile(fileName, 
-                `# ${data.title} \n <img src="${badgeImage}"> \n\n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](#installation) \n * [Usage Information](#usage-information) \n * [Contributing](#contributing) \n * [Tests](#tests) \n * [License](#license) \n * [Questions](#questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}). \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
+                `# ${data.title}  \n <img src="${badgeImage}">  \n\n ## Description  \n ${data.description}  \n\n ## Table of Contents \n * [Installation](#installation) \n * [Usage Information](#usage-information) \n * [Contributing](#contributing) \n * [Tests](#tests) \n * [License](#license) \n * [Questions](#questions) \n\n ## Installation \n ${data.installation} \n\n ## Usage \n ${data.usage} \n\n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}). \n\n ## Contributing \n ${data.contributions} \n\n ## Tests \n ${data.tests} \n\n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
                 (err) => {
                     err ? console.error(err) : console.log("Success! README.md created successfully.")
                 }
