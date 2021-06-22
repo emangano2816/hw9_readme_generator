@@ -9,11 +9,11 @@ const questions = [
 
 // Create a function to write README file
 function writeToFile(fileName, data) {
-    console.log(fileName);
-    console.log(data);
+
     let badgeImage = generateMarkdown.renderLicenseBadge(data.license);
+    let badgeLink = generateMarkdown.renderLicenseLink(data.license);
     fs.writeFile(fileName, 
-                `# ${data.title}  <img src="${badgeImage}"> \n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](https://github.com/${data.githubuser}/hw9_readme_generator/##Installation) \n * [Usage Information](https://github.com/${data.githubuser}/hw9_readme_generator/##Usage-Information) \n * [Contribution](https://github.com/${data.githubuser}/hw9_readme_generator/##Contributing) \n * [Tests](https://github.com/${data.githubuser}/hw9_readme_generator/##Tests) \n [License](https://github.com/${data.githubuser}/hw9_readme_generator/##License) \n * [Questions](https://github.com/${data.githubuser}/hw9_readme_generator/##Questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## License \n This project is licensed under the terms of the ${data.license} \n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
+                `# ${data.title}  <img src="${badgeImage}"> \n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](https://github.com/${data.githubuser}/hw9_readme_generator/##Installation) \n * [Usage Information](https://github.com/${data.githubuser}/hw9_readme_generator/##Usage-Information) \n * [Contribution](https://github.com/${data.githubuser}/hw9_readme_generator/##Contributing) \n * [Tests](https://github.com/${data.githubuser}/hw9_readme_generator/##Tests) \n [License](https://github.com/${data.githubuser}/hw9_readme_generator/##License) \n * [Questions](https://github.com/${data.githubuser}/hw9_readme_generator/##Questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}).\n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
                  (err) => {
         err ? console.error(err) : console.log("Success!")
     })
@@ -70,13 +70,14 @@ function init() {
                 name: 'license',
                 choices: [
                             'Apache 2.0 License', 
-                            'BSD 2-clause "Simplified" License',
-                            'BSD 3-clause Clear License',
+                            'BSD 2-clause License',
+                            'BSD 3-clause License',
                             'GNU Affero General Public License v3.0',
                             'GNU General Public License v2.0',
                             'GNU General Public License v3.0',
                             'GNU Lesser General Public License v3.0',
                             'MIT License',
+                            'Mozilla Public License 2.0',
                             'The Unlicense'                     
                         ],
             },
