@@ -13,10 +13,11 @@ function writeToFile(fileName, data) {
     let badgeImage = generateMarkdown.renderLicenseBadge(data.license);
     let badgeLink = generateMarkdown.renderLicenseLink(data.license);
     fs.writeFile(fileName, 
-                `# ${data.title}  <img src="${badgeImage}"> \n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](https://github.com/${data.githubuser}/hw9_readme_generator/##Installation) \n * [Usage Information](https://github.com/${data.githubuser}/hw9_readme_generator/##Usage-Information) \n * [Contribution](https://github.com/${data.githubuser}/hw9_readme_generator/##Contributing) \n * [Tests](https://github.com/${data.githubuser}/hw9_readme_generator/##Tests) \n [License](https://github.com/${data.githubuser}/hw9_readme_generator/##License) \n * [Questions](https://github.com/${data.githubuser}/hw9_readme_generator/##Questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}).\n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
-                 (err) => {
-        err ? console.error(err) : console.log("Success!")
-    })
+                `# ${data.title}  <img src="${badgeImage}"> \n ## Description \n ${data.description} \n ## Table of Contents \n * [Installation](#installation) \n * [Usage Information](#usage-information) \n * [Contributing](#contributing) \n * [Tests](#tests) \n * [License](#license) \n * [Questions](#questions) \n ## Installation \n ${data.installation} \n ## Usage Information \n ${data.usage} \n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}). \n ## Contributing \n ${data.contributions} \n ## Tests \n ${data.tests} \n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`, 
+                (err) => {
+                    err ? console.error(err) : console.log("Success! README.md created successfully.")
+                }
+            )
 }
 
 // Create a function to initialize app
@@ -83,11 +84,11 @@ function init() {
             },
             {
                 type: 'input',
-                message: 'What is your GitHub username (link to repo will be included for questions)?',
+                message: 'What is your GitHub username?',
                 name: 'githubuser',
                 validate: function(text) {
                     if (text === '') {
-                        return 'Please provide your GitHub username.'
+                        return 'Please provide your GitHub username so users are able to contact you for questions.'
                     } 
                     return true;
                 }
@@ -98,13 +99,14 @@ function init() {
                 name: 'emailaddress',
                 validate: function(text) {
                     if (text === '') {
-                        return 'Please provide an email address so users are able to contact your for questions.'
+                        return 'Please provide an email address so users are able to contact you for questions.'
                     } 
                     return true;
                 }
             }
         ])
         .then((response) => {
+            console.log('The below information will be inlcuded in the generated README');
             console.log(response);
             writeToFile('README.md', response);
         })

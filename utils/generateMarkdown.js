@@ -42,7 +42,7 @@ function renderLicenseBadge(license) {
     return badge;
 }
 
-// TODO: Create a function that returns the license link
+// Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
     switch (license) {
