@@ -3,7 +3,8 @@
 ## Link(s)
 
 1. [GitHub Repository](https://github.com/emangano2816/readme_generator)
-2. [README_SAMPLE.md](.README_SAMPLE.md)
+2. [README_SAMPLE.md](/README_SAMPLE.md)
+
 
 ## User Story
 
