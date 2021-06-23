@@ -2,6 +2,7 @@ let badge;
 let link;
 let badgeImage;
 let badgeLink;
+let licenseText;
 
 //Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -91,19 +92,19 @@ function renderLicenseLink(license) {
 function renderLicenseSection(data) {
     badgeImage = renderLicenseBadge(data.license);
     badgeLink = renderLicenseLink(data.license);
+
+    (badgeImage === '') ? licenseText = '' : licenseText = `This project is licensed under the terms of the [${data.license}](${badgeLink}).`;
 }
 
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
     renderLicenseSection(data);
 
-    return `# ${data.title}  \n <img src="${badgeImage}">  \n\n ## Description  \n ${data.description}  \n\n ## Table of Contents \n * [Installation](#installation) \n * [Usage Information](#usage-information) \n * [Contributing](#contributing) \n * [Tests](#tests) \n * [License](#license) \n * [Questions](#questions) \n\n ## Installation \n ${data.installation} \n\n ## Usage \n ${data.usage} \n\n ## License \n This project is licensed under the terms of the [${data.license}](${badgeLink}). \n\n ## Contributing \n ${data.contributions} \n\n ## Tests \n ${data.tests} \n\n ## Questions? \n Contact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}`
+    return `# ${data.title}\n\n![License Badge](${badgeImage})\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage Information](#usage-information)\n* [Contributing](#contributing)\n* [Tests](#tests)\n* [License](#license)\n* [Questions](#questions)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\n${licenseText}\n\n## Contributing\n\n${data.contributions}\n\n## Tests\n\n${data.tests}\n\n## Questions?\n\nContact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}\n`
 ;
 }
 
 module.exports = {
-    badge,
-    link,
     renderLicenseBadge,
     renderLicenseLink,
     renderLicenseSection,
