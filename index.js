@@ -84,9 +84,9 @@ const questions = [
 function writeToFile(fileName, data) {
 
     fs.writeFile(fileName, generateMarkdown.generateMarkdown(data), (err) => {
-                    err ? console.error(err) : console.log("Success! README.md created successfully.")
+                    err ? console.error(err) : console.log("Success! Markdown created successfully. Check VS for file named README_SAMPLE.md")
                 }
-            )
+    )
 }
 
 // Create a function to initialize app
