@@ -93,14 +93,14 @@ function renderLicenseSection(data) {
     badgeImage = renderLicenseBadge(data.license);
     badgeLink = renderLicenseLink(data.license);
 
-    (badgeImage === '') ? licenseText = '' : licenseText = `This project is licensed under the terms of the [${data.license}](${badgeLink}).`;
+    (badgeImage === '') ? licenseText = '' : licenseText = `This project is licensed under the terms of the [${data.license}](${badgeLink}).\n\n`;
 }
 
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
     renderLicenseSection(data);
 
-    return `# ${data.title}\n\n![License Badge](${badgeImage})\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage Information](#usage-information)\n* [Contributing](#contributing)\n* [Tests](#tests)\n* [License](#license)\n* [Questions](#questions)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\n${licenseText}\n\n## Contributing\n\n${data.contributions}\n\n## Tests\n\n${data.tests}\n\n## Questions?\n\nContact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}\n`
+    return `# ${data.title}\n\n![License Badge](${badgeImage})\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage Information](#usage-information)\n* [Contributing](#contributing)\n* [Tests](#tests)\n* [License](#license)\n* [Questions](#questions)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\n${licenseText}## Contributing\n\n${data.contributions}\n\n## Tests\n\n${data.tests}\n\n## Questions?\n\nContact me through [GitHub](https://github.com/${data.githubuser}) or via email at: ${data.emailaddress}\n`
 ;
 }
 
