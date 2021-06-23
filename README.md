@@ -1,4 +1,4 @@
-# Readme Generator
+# README Generator
 
 ## Link(s)
 
@@ -34,10 +34,10 @@ THEN I am taken to the corresponding section of the README
 
 ## Achieving Acceptance Criteria
 
-1. Upon invoking the application through the terminal, the user will be prompted to respond to questions about the content to be included in the generated README. Once all questions are answered a README.md is generated for the user.  The file follows mark-down formatting and is high-quality.
-2. The title of the project is displayed as the first header in the generated README file.
-3. The user provided description, installation instructions, usage information, contribution guildelines, and test intructions are displayed in the sections of the README titled Description, Installation, Usage, Contributing, and Tests.
-4. The user is given a choice of 10 different licenses.  A badge of the selected license is displayed under the title of the project.  Additionally, under the section titled License, a sentence explaining which license the application is covered under is included with a link to open source documentation about that license.
+1. Upon invoking the application through the terminal, the user will be prompted to respond to questions about the content to be included in the generated README. Once all questions are answered a README is generated for the user.  The generated README follows mark-down formatting/rules.
+2. The title of the project is displayed as the first header in the generated README.
+3. The user provided description, installation instructions, usage information, contribution guildelines, and test intructions are displayed in the sections of the README titled Description, Installation, Usage, Contributing, and Tests, respectively.
+4. The user is given a choice of 10 different licenses as well as the option to not select a license at this time. If applicable, a badge of the selected license is displayed under the title of the project.  Additionally, under the section titled License, a sentence explaining which license the application is covered under is included with a link to open source documentation about that license.  If the user selects the 'Not at this time' license option then a badge placeholder is displayed and nothing is included in the License section.
 5. The user's GitHub username is added to the Questions? section as a link to their GitHub profile.
 6. The user's email address is also added to the Questions? section.
 7. Each section of the README (with the exception of the Description) is included in the TOC.  The links within the TOC take the user to the specified section of the README.
@@ -46,6 +46,10 @@ THEN I am taken to the corresponding section of the README
 
 1. Node.js
 2. JavaScript
+
+## Installation
+
+You will need node.js and also the inquirer package to run this application.
 
 ## Video Demonstration
 
