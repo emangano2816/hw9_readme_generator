@@ -38,5 +38,12 @@ THEN I am taken to the corresponding section of the README
 6. The user's email address is also added to the Questions? section.
 7. Each section of the README (with the exception of the Description) is included in the TOC.  The links within the TOC take the user to the specified section of the README.
 
+## Tecnhologies Used
+1. Node.js
+2. JavaScript
+
 ## Video Demonstration
+
+## License
+This application is covered under the MIT license.
 
