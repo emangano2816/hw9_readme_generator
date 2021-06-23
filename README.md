@@ -1,17 +1,20 @@
 # Readme Generator
 
-## URLs
-GitHub Repository: https://github.com/emangano2816/readme_generator
+## Link(s)
+
+[GitHub Repository](https://github.com/emangano2816/readme_generator)
 
 ## User Story
-```
+
+```text
 AS A developer
 I WANT a README generator
 SO THAT I can quickly create a professional README for a new project
 ```
 
 ## Acceptance Criteria
-```
+
+```text
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for information about my application repository
 THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
@@ -30,6 +33,7 @@ THEN I am taken to the corresponding section of the README
 ```
 
 ## Achieving Acceptance Criteria
+
 1. Upon invoking the application through the terminal, the user will be prompted to respond to questions about the content to be included in the generated README. Once all questions are answered a README.md is generated for the user.  The file follows mark-down formatting and is high-quality.
 2. The title of the project is displayed as the first header in the generated README file.
 3. The user provided description, installation instructions, usage information, contribution guildelines, and test intructions are displayed in the sections of the README titled Description, Installation, Usage, Contributing, and Tests.
@@ -39,11 +43,12 @@ THEN I am taken to the corresponding section of the README
 7. Each section of the README (with the exception of the Description) is included in the TOC.  The links within the TOC take the user to the specified section of the README.
 
 ## Tecnhologies Used
+
 1. Node.js
 2. JavaScript
 
 ## Video Demonstration
 
 ## License
-This application is covered under the MIT license.
 
+This application is covered under the MIT license.
