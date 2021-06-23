@@ -10,11 +10,7 @@ const questions = [
         message: 'What is the title of your project?',
         name: 'title',
         validate: function(text) {
-            if (text !== '') {
-                return true
-             } else {
-                 return 'Please provide a project title. Provide a placeholder if unsure of title at this time.';
-             }
+            return (text !== '') ? true : 'Please provide a project title. Provide a placeholder if unsure of title at this time.';
         }
     },
     {
@@ -70,11 +66,7 @@ const questions = [
         message: 'What is your GitHub username?',
         name: 'githubuser',
         validate: function(text) {
-            if (text !== '') {
-                return true
-            } else {
-                 return 'Please provide your GitHub username so users are able to contact you with questions.' ;
-                }
+            return (text !== '') ? true : 'Please provide your GitHub username so users are able to contact you with questions.' ;
         } 
     },
     {
@@ -83,11 +75,7 @@ const questions = [
         name: 'emailaddress',
         validate: function(text) {
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (emailPattern.test(text)) {
-                return true;
-            } else {
-                return 'Please provide a valid email address so users are able to contact you with questions.';                
-            }  
+            return (emailPattern.test(text)) ? true : 'Please provide a valid email address so users are able to contact you with questions.';
         }
     }   
 ];
