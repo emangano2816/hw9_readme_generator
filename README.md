@@ -53,6 +53,8 @@ You will need node.js and also the inquirer package to run this application.
 
 ## Video Demonstration
 
+https://user-images.githubusercontent.com/79860046/123151253-44f00a00-d431-11eb-8d36-ad7c950fee6e.mp4
+
 ## License
 
 This application is covered under the MIT license.
