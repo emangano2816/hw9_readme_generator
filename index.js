@@ -18,33 +18,33 @@ const questions = [
     },
     {
         type: 'editor',
-        message: 'Provide a descriptoin for your project.',
+        message: 'Provide a description for your project.',
         name: 'description',
-        default: 'Description of project goes here.',
+        default: `Description of project goes here.\n\nRemember to CTRL+S to save information before closing the editor.`,
     },
     {
         type: 'editor',
         message: 'Provide installation instructions.',
         name: 'installation',
-        default: 'Installation instructions go here.',
+        default: `Installation instructions go here.\n\nRemember to CTRL+S to save information before closing the editor.`,
     },
     {                   
         type: 'editor',
         message: 'Provide usage instructions.',
         name: 'usage',
-        default: 'Usage instructions go here.',
+        default: `Usage instructions go here.\n\nRemember to CTRL+S to save information before closing the editor.`,
     },
     {   
         type: 'editor',
         message: 'Provide guidelines for contributing to the project.',
         name: 'contributions',
-        default: 'Guidelines for contributing go here.',
+        default: `Guidelines for contributing go here.\n\nRemember to CTRL+S to save information before closing the editor.`,
     },
     {
         type: 'editor',
         message: 'Provide instructions for testing the application.',
         name: 'tests',
-        default: 'Test instructions go here.',
+        default: `Test instructions go here.\n\nRemember to CTRL+S to save information before closing the editor.`,
     },
     {
         type: 'list',
@@ -60,7 +60,8 @@ const questions = [
                     'GNU Lesser General Public License v3.0',
                     'MIT License',
                     'Mozilla Public License 2.0',
-                    'The Unlicense'                     
+                    'The Unlicense',
+                    'Do not wish to include at this time.'
                 ],
     },
     {
@@ -69,7 +70,7 @@ const questions = [
         name: 'githubuser',
         validate: function(text) {
             if (text === '') {
-                return 'Please provide your GitHub username so users are able to contact you for questions.'
+                return 'Please provide your GitHub username so users are able to contact you with questions.'
             } 
             return true;
         }
@@ -80,7 +81,7 @@ const questions = [
         name: 'emailaddress',
         validate: function(text) {
             if (text === '') {
-                return 'Please provide an email address so users are able to contact you for questions.'
+                return 'Please provide an email address so users are able to contact you with questions.'
             } 
             return true;
         }
@@ -90,9 +91,7 @@ const questions = [
 // Create a function to write README file
 function writeToFile(fileName, data) {
 
-    fs.writeFile(fileName, 
-                generateMarkdown.generateMarkdown(data), 
-                (err) => {
+    fs.writeFile(fileName, generateMarkdown.generateMarkdown(data), (err) => {
                     err ? console.error(err) : console.log("Success! README.md created successfully.")
                 }
             )
@@ -103,7 +102,7 @@ function init() {
     inquirer
         .prompt (questions)
         .then((response) => {
-            console.log('The below information will be inlcuded in the generated README');
+            console.log('The below information will be inlcuded in the generated README.');
             console.log(response);
             writeToFile('README_SAMPLE.md', response);
         })
