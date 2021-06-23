@@ -33,9 +33,9 @@ THEN I am taken to the corresponding section of the README
 1. Upon invoking the application through the terminal, the user will be prompted to respond to questions about the content to be included in the generated README. Once all questions are answered a README.md is generated for the user.  The file follows mark-down formatting and is high-quality.
 2. The title of the project is displayed as the first header in the generated README file.
 3. The user provided description, installation instructions, usage information, contribution guildelines, and test intructions are displayed in the sections of the README titled Description, Installation, Usage, Contributing, and Tests.
-4. The user is given a choice of 10 different licenses.  A badge of the selected license is displayed under the title of the project.  Additionally, under the section titled License, a sentence explaining which license the application is covered under is included.
+4. The user is given a choice of 10 different licenses.  A badge of the selected license is displayed under the title of the project.  Additionally, under the section titled License, a sentence explaining which license the application is covered under is included with a link to open source documentation about that license.
 5. The user's GitHub username is added to the Questions? section as a link to their GitHub profile.
-6. The user's email address is also added to the Questions section.
+6. The user's email address is also added to the Questions? section.
 7. Each section of the README (with the exception of the Description) is included in the TOC.  The links within the TOC take the user to the specified section of the README.
 
 ## Video Demonstration
